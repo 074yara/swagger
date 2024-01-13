@@ -9,8 +9,8 @@ import (
 	_ "swagger/proxy/docs"
 )
 
-//	@title			hugoProxy
-//	@version		1.0
+//	@title			HugoProxyWithYandexGeoApi
+//	@version		1.1
 //	@description	test API server for hugoProxy
 //	@host			localhost:8080
 //	@basePath		/api

@@ -9,7 +9,7 @@ definitions:
       result:
         type: string
     type: object
-  main.SearchRequest:
+  main.AddressSearchRequest:
     properties:
       query:
         type: string
@@ -25,8 +25,8 @@ host: localhost:8080
 info:
   contact: {}
   description: test API server for hugoProxy
-  title: hugoProxy
-  version: "1.0"
+  title: HugoProxyWithYandexGeoApi
+  version: "1.1"
 paths:
   /address/geocode:
     post:
@@ -47,8 +47,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/main.SearchResponse'
-        "403":
-          description: Forbidden
+        "400":
+          description: Bad Request
         "503":
           description: Service Unavailable
       summary: Get address from coordinates
@@ -60,12 +60,12 @@ paths:
       - application/json
       description: Get coordinates from address
       parameters:
-      - description: SearchRequest
+      - description: AddressSearchRequest
         in: body
         name: input
         required: true
         schema:
-          $ref: '#/definitions/main.SearchRequest'
+          $ref: '#/definitions/main.AddressSearchRequest'
       produces:
       - application/json
       responses:
@@ -73,8 +73,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/main.SearchResponse'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
         "503":
           description: Service Unavailable
       summary: Get coordinates from address

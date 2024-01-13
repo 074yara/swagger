@@ -70,7 +70,7 @@ func (y YandexAPI) GetGeoFromAddress(address string) (string, string) {
 	geoStr := yandexResponse.Response.GeoObjectCollection.FeatureMember[0].GeoObject.Point.Pos
 	geoSlice := strings.Split(geoStr, ` `)
 	if len(geoSlice) == 2 {
-		lat, lon = geoSlice[0], geoSlice[1]
+		lat, lon = geoSlice[1], geoSlice[0]
 	}
 	//fmt.Println(yandexResponse.Response.GeoObjectCollection.FeatureMember[0].GeoObject.MetaDataProperty.GeocoderMetaData.Text)
 	return lat, lon
@@ -82,7 +82,7 @@ func (y YandexAPI) GetAddrFromGeo(lat, lon string) string {
 	//без QueryEscape не работает на русском
 	lat = net.QueryEscape(lat)
 	lon = net.QueryEscape(lon)
-	url := fmt.Sprintf(`%v?apikey=%v&geocode=%v,%v&format=%v&resultsresults=1`, yandexURL, y.apikey, lat, lon, y.format)
+	url := fmt.Sprintf(`%v?apikey=%v&geocode=%v,%v&format=%v&resultsresults=1`, yandexURL, y.apikey, lon, lat, y.format)
 	req, err := http.NewRequest("GET", url, nil)
 	checkError(err)
 

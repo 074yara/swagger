@@ -2,9 +2,9 @@
     "swagger": "2.0",
     "info": {
         "description": "test API server for hugoProxy",
-        "title": "hugoProxy",
+        "title": "HugoProxyWithYandexGeoApi",
         "contact": {},
-        "version": "1.0"
+        "version": "1.1"
     },
     "host": "localhost:8080",
     "basePath": "/api",
@@ -40,8 +40,8 @@
                             "$ref": "#/definitions/main.SearchResponse"
                         }
                     },
-                    "403": {
-                        "description": "Forbidden"
+                    "400": {
+                        "description": "Bad Request"
                     },
                     "503": {
                         "description": "Service Unavailable"
@@ -64,12 +64,12 @@
                 "summary": "Get coordinates from address",
                 "parameters": [
                     {
-                        "description": "SearchRequest",
+                        "description": "AddressSearchRequest",
                         "name": "input",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/main.SearchRequest"
+                            "$ref": "#/definitions/main.AddressSearchRequest"
                         }
                     }
                 ],
@@ -80,8 +80,8 @@
                             "$ref": "#/definitions/main.SearchResponse"
                         }
                     },
-                    "404": {
-                        "description": "Not Found"
+                    "400": {
+                        "description": "Bad Request"
                     },
                     "503": {
                         "description": "Service Unavailable"
@@ -105,7 +105,7 @@
                 }
             }
         },
-        "main.SearchRequest": {
+        "main.AddressSearchRequest": {
             "type": "object",
             "properties": {
                 "query": {

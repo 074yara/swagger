@@ -12,7 +12,7 @@
 
 Маршрут: `/api/address/search` метод `POST`
 ```go
-type SearchRequest struct {
+type AddressSearchRequest struct {
 Query string `json:"query"`
 }
 ```

@@ -46,8 +46,8 @@ const docTemplate = `{
                             "$ref": "#/definitions/main.SearchResponse"
                         }
                     },
-                    "403": {
-                        "description": "Forbidden"
+                    "400": {
+                        "description": "Bad Request"
                     },
                     "503": {
                         "description": "Service Unavailable"
@@ -70,12 +70,12 @@ const docTemplate = `{
                 "summary": "Get coordinates from address",
                 "parameters": [
                     {
-                        "description": "SearchRequest",
+                        "description": "AddressSearchRequest",
                         "name": "input",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/main.SearchRequest"
+                            "$ref": "#/definitions/main.AddressSearchRequest"
                         }
                     }
                 ],
@@ -86,8 +86,8 @@ const docTemplate = `{
                             "$ref": "#/definitions/main.SearchResponse"
                         }
                     },
-                    "404": {
-                        "description": "Not Found"
+                    "400": {
+                        "description": "Bad Request"
                     },
                     "503": {
                         "description": "Service Unavailable"
@@ -111,7 +111,7 @@ const docTemplate = `{
                 }
             }
         },
-        "main.SearchRequest": {
+        "main.AddressSearchRequest": {
             "type": "object",
             "properties": {
                 "query": {
@@ -135,11 +135,11 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "1.0",
+	Version:          "1.1",
 	Host:             "localhost:8080",
 	BasePath:         "/api",
 	Schemes:          []string{},
-	Title:            "hugoProxy",
+	Title:            "HugoProxyWithYandexGeoApi",
 	Description:      "test API server for hugoProxy",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
