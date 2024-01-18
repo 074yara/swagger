@@ -8,15 +8,25 @@ import (
 
 // На DADATA кончились запросы, их там всего 130, поэтому перевёл всё на Yandex GEO API
 
+// Address model info
+// @Description Address and coordinates struct
+// @Description with a specific address and/or coordinates
 type Address struct {
-	Result string `json:"result,omitempty"`
-	GeoLat string `json:"lat,omitempty"`
-	GeoLon string `json:"lon,omitempty"`
+	Result string `json:"result,omitempty" swaggertype:"string" format:"string" example:"г. Челябинск, ул. Чичерина, 1"`
+	GeoLat string `json:"lat,omitempty" swaggertype:"string" format:"string" example:"55.190467"`
+	GeoLon string `json:"lon,omitempty" swaggertype:"string" format:"string" example:"61.282494"`
 }
 
+// AddressSearchRequest model info
+// @Description single string request
+// @Description for inner usage
 type AddressSearchRequest struct {
-	Query string `json:"query"`
+	Query string `json:"query" swaggertype:"string" format:"string" example:"г. Челябинск, ул. Чичерина, 1"`
 }
+
+// SearchResponse model info
+// @Description response struct
+// @Description for inner usage
 type SearchResponse struct {
 	Addresses []*Address `json:"addresses"`
 }

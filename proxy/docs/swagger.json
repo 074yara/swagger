@@ -92,28 +92,39 @@
     },
     "definitions": {
         "main.Address": {
+            "description": "Address and coordinates struct with a specific address and/or coordinates",
             "type": "object",
             "properties": {
                 "lat": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "string",
+                    "example": "55.190467"
                 },
                 "lon": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "string",
+                    "example": "61.282494"
                 },
                 "result": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "string",
+                    "example": "г. Челябинск, ул. Чичерина, 1"
                 }
             }
         },
         "main.AddressSearchRequest": {
+            "description": "single string request for inner usage",
             "type": "object",
             "properties": {
                 "query": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "string",
+                    "example": "г. Челябинск, ул. Чичерина, 1"
                 }
             }
         },
         "main.SearchResponse": {
+            "description": "response struct for inner usage",
             "type": "object",
             "properties": {
                 "addresses": {

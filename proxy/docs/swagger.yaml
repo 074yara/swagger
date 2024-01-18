@@ -1,20 +1,31 @@
 basePath: /api
 definitions:
   main.Address:
+    description: Address and coordinates struct with a specific address and/or coordinates
     properties:
       lat:
+        example: "55.190467"
+        format: string
         type: string
       lon:
+        example: "61.282494"
+        format: string
         type: string
       result:
+        example: г. Челябинск, ул. Чичерина, 1
+        format: string
         type: string
     type: object
   main.AddressSearchRequest:
+    description: single string request for inner usage
     properties:
       query:
+        example: г. Челябинск, ул. Чичерина, 1
+        format: string
         type: string
     type: object
   main.SearchResponse:
+    description: response struct for inner usage
     properties:
       addresses:
         items:
